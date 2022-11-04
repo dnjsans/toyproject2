@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/total.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script>
+        $(document).ready(function (){
+            showgrade();
+        })
+
+        function showgrade(){
+            $.ajax({
+                type:'GET',
+                url:'/grade1',
+                data:{},
+                success:function (response){
+                    let rows=response['music']
+
+                    for (let i = 0; i <rows.length ; i++) {
+                        let comment=rows[i]['comment']
+                        let title=rows[i]['title']
+                        let star=rows[i]['star']
+                        let image=rows[i]['image']
+
+                        let star_image='⭐'.repeat(star)
+
+                        let temp_html=`<table>
+                                            <tr class="trimg">
+                                                <td colspan="2"><img src="${image}" width="300px" height="300px"></td>
+                                            </tr>
+                                            <tr class="trtitle">
+                                                <td class="td1">제목</td><td class="td2">${title}</td>
+                                            </tr>
+                                            <tr class="trtitle">
+                                                <td class="td1">평점</td><td class="td2">${star_image}</td>
+                                            </tr>
+                                            <tr class="trcom">
+                                                <td class="td1">코멘트</td><td class="td2">${comment}</td>
+                                            </tr>
+                                        </table>`
+
+                        $('#box1').append(temp_html)
+                    }
+                }
+            })
+        }
+
+        function gradeclick(){
+            let comment = $('#comment').val()
+            let star = $('#sele').val()
+            let url = $('#url').val()
+            $.ajax({
+                type:'POST',
+                url:'/grade1',
+                data:{url_give:url, star_give:star, comment_give:comment},
+                success:function (response){
+                    alert(response['msg'])
+                    window.location.reload()
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<nav class="nav">
+    <h1>𝄞 UpTempo</h1>
+    <div>
+        <a href="/">검색</a>
+    </div>
+    <div>
+        <a href="/chart">실시간 차트</a>
+    </div>
+    <div>
+        <a href="/grade">평점</a>
+    </div>
+</nav>
+
+<main>
+    <div>1</div> <!--하얀 줄이 생겨 넣으면 사라짐-->
+    <div class="shabox">
+        <input type="text" class="urltext" placeholder="URL을 입력해주세요" id="url">
+        <div class="slectoption">
+            <label class="optiontext" for="sele"> 평점</label>
+            <select class="select" id="sele">
+                <option selected>--선택하기--</option>
+                <option value="1">⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="4">⭐⭐⭐⭐</option>
+                <option value="5">⭐⭐⭐⭐⭐</option>
+            </select>
+        </div>
+        <textarea class="textar" placeholder="코멘트" id="comment"></textarea>
+        <div class="gradeBtn">
+            <button onclick="gradeclick()">평점 남기기</button>
+            <button><a href="https://www.genie.co.kr/" target="_blank">지니 바로가기</a></button>
+        </div>
+
+    </div>
+    <div class="boxt1" id="box1">
+    </div>
+</main>
+
+<footer>
+    <h1> 𝄞 UpTempo</h1>
+    <div class="field">
+        <fieldset>
+            <legend>creators</legend>
+            👨‍💻- 이원문 👨‍💻 - 김병무 👨‍💻 - 김동현
+        </fieldset>
+    </div>
+    <div class="field">
+        <fieldset>
+            <legend>copyright</legend>
+            Copyright 2022.항해 99 All right reserved
+        </fieldset>
+    </div>
+</footer>
+
+</body>
+</html>

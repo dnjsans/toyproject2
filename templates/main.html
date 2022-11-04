@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta property="og:title" content="𝄞 UpTempo" />
+    <meta property="og:description" content="Genie Chart Crawler" />
+    <meta property="og:image" content="https://i0.wp.com/entmediahub.com.ng/wp-content/uploads/2019/03/tekno-up-tempo-.jpg?w=500&ssl=1" />
+
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/total.css">
+    <style>
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('#searchBtn').click(function () {
+                if ($('#search').val().length == 0) {
+                    $('#listopen').hide();
+                    return false;
+                }
+                if ($('#search').val().length !== 0) {
+                    $('#listopen').show();
+                    return false;
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<nav class="nav">
+    <h1>𝄞 UpTempo</h1>
+    <div>
+        <a href="/">검색</a>
+    </div>
+    <div>
+        <a href="/chart">실시간 차트</a>
+    </div>
+    <div>
+        <a href="/grade">평점</a>
+    </div>
+</nav>
+
+<main>
+    <form class="search" id="search-form" onsubmit="return false" action="/music">
+        <input type="text" class="insearch" id="search" placeholder=" 가수를 입력해 주세요"
+               onKeypress="javascript:if(event.keyCode==13){document.getElementById('searchBtn').click()}">
+        <button type="button" id="searchBtn" onclick="showList()">🔍</button>
+    </form>
+    <fieldset class="list" id="listopen">
+        <legend><h1>노래 목록</h1></legend>
+        <ul id="list">
+        </ul>
+    </fieldset>
+    <script src="../static/script.js"></script>
+</main>
+
+<footer>
+    <h1> 𝄞 UpTempo</h1>
+    <div class="field">
+        <fieldset>
+            <legend>creators</legend>
+            👨‍💻- 이원문 👨‍💻 - 김병무 👨‍💻 - 김동현
+        </fieldset>
+    </div>
+    <div class="field">
+        <fieldset>
+            <legend>copyright</legend>
+            Copyright 2022.항해 99 All right reserved
+        </fieldset>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+h1{
+    width: 180px;
+    font-size: medium;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+nav {
+    width:100%;
+    height: 100px;
+    background-color: black;
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /*margin: 0 auto;*/
+}
+
+main {
+    width: 100%;
+    height: 1000px;
+    background: #000000;
+    background: -webkit-linear-gradient(to right, #000000, #434343);
+    background: linear-gradient(to right, #000000, #434343);
+}
+
+footer {
+    width: 100%;
+    height: 150px;
+    background-color: black;
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.field {
+    width: 150px;
+    margin-right: 10px;
+}
+
+.search {
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.insearch {
+    max-width: 300px;
+    width:95%;
+    height: 50px;
+    background-color: transparent;
+    color: white;
+    border-radius: 20px;
+}
+
+.search > button {
+    max-width: 50px;
+    width: 95%;
+    height: 50px;
+    margin: 0 0 0 10px;
+    border-radius: 20px;
+}
+
+.search > button:hover {
+    border: 2px solid black;
+}
+
+.list {
+    width: 95%;
+    height: 500px;
+    box-shadow: 0 0 3px 0 gray;
+    margin: 0 auto;
+    color: white;
+    display: none;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+/*여기까지 메인 css*/
+.o {
+    color: white;
+    width: 90%;
+    height: 93%;
+
+    margin: 10px auto 0;
+
+    border: 1px solid white;
+}
+
+.numranking {
+    max-width: 1000px;
+    width: 98%;
+    height: 45px;
+    border: 1px solid white;
+    margin: 10px auto 0;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.s1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    font-size: small;
+    border: 1px solid white;
+}
+
+.s2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: small;
+    border: 1px solid white;
+}
+
+.s3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    font-size: small;
+    border: 1px solid white;
+
+}
+
+.chart1 {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto 10px;
+    font-size: xx-large;
+}
+
+/*여기까지 실시간 차트 페이지 css*/
+
+.shabox {
+    max-width: 400px;
+    width: 95%;
+    height: 300px;
+    box-shadow: 0 0 3px 0 gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 5px auto 10px;
+}
+
+.slectoption {
+    width: 300px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 20px;
+}
+
+.select {
+    width: 264px;
+    height: 40px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.gradeBtn > button {
+    margin: 5px auto 20px;
+    font-size: 15px;
+    background-color: transparent;
+    color:white;
+    border-radius: 10px;
+    border: 1px solid white;
+    margin: 0 10px;
+
+}
+
+.textar {
+    width: 300px;
+    height: 70px;
+    margin: 20px auto;
+}
+.urltext {
+    width: 300px;
+    height: 40px;
+    margin: 20px auto 20px;
+}
+
+.boxt1 {
+    max-width: 95%;
+    height: 630px;
+    margin: 15px auto 0;
+    border: 1px solid white;
+    overflow: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+table {
+    color: white;
+    border: 1px solid white;
+    margin: 20px auto 0;
+
+}
+
+td {
+    height: 50px;
+    border: 1px solid white;
+}
+.trimg{
+    width:300px;
+    height: 300px;
+}
+.td2{
+    width:150px;
+    padding-left: 10px;
+}
+
+.td1 {
+    width: 30px;
+}
+
+/*여기까지 grade 페이지*/

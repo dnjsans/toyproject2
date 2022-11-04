@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/total.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script>
+        $(document).ready(function () {
+            all_rank();
+        });
+
+        function all_rank() {
+            $.ajax({
+                type: 'get',
+                url: '/music',
+                data: {},
+                success: function (response) {
+                    let rows = response
+
+                    for (let i = 0; i < 30; i++) {
+                        let rank = rows[i]['rank']
+                        let title = rows[i]['title']
+                        let artist = rows[i]['artist']
+
+                        let temp_html = `<div class="numranking" id="numrank">
+                                            <div class="s1">${rank}</div><div class="s2">${title}</div><div class="s3">${artist}</div>
+                                        </div>
+                                        `
+
+                        $('#numrank').append(temp_html)
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<nav class="nav">
+    <h1>𝄞 UpTempo</h1>
+    <div>
+        <a href="/">검색</a>
+    </div>
+    <div>
+        <a href="/chart">실시간 차트</a>
+    </div>
+    <div>
+        <a href="/grade">평점</a>
+    </div>
+</nav>
+
+<main>
+    <div>1</div> <!-- 하얀부분 생겨서 일부러 넣음-->
+    <div class="o">
+        <h1 class="chart1">실시간 차트</h1>
+        <div id="numrank">
+
+        </div>
+    </div>
+</main>
+
+<footer>
+    <h1> 𝄞 UpTempo</h1>
+    <div class="field">
+        <fieldset>
+            <legend>creators</legend>
+            👨‍💻- 이원문 👨‍💻 - 김병무 👨‍💻 - 김동현
+        </fieldset>
+    </div>
+    <div class="field">
+        <fieldset>
+            <legend>copyright</legend>
+            Copyright 2022.항해 99 All right reserved
+        </fieldset>
+    </div>
+</footer>
+
+</body>
+</html>
